@@ -1,10 +1,8 @@
 package com.workintech.s18d1;
 
-import com.workintech.s18d1.dao.BurgerDao;
-import com.workintech.s18d1.dao.BurgerDaoImpl;
 import com.workintech.s18d1.entity.BreadType;
 import com.workintech.s18d1.entity.Burger;
-import com.workintech.s18d1.exceptions.BurgerErrorResponse;
+import com.workintech.s18d1.exceptions.BurgerErrorException;
 import com.workintech.s18d1.exceptions.BurgerException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -168,7 +166,7 @@ class MainTest {
     @Test
     void testBurgerErrorResponse() {
         String expectedMessage = "An error occurred";
-        BurgerErrorResponse errorResponse = new BurgerErrorResponse(expectedMessage);
+        BurgerErrorException errorResponse = new BurgerErrorException(expectedMessage);
 
         assertEquals(expectedMessage, errorResponse.getMessage(), "The retrieved message should match the expected message.");
     }
